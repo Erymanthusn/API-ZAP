@@ -46,7 +46,7 @@ app.get('/v1/whatsapp/dadoscontatos', function(request, response){
     }
 })
 
-app.get('v1/whatsapp/dadosusuario', function (request, response){
+app.get('/v1/whatsapp/dadosusuario', function (request, response){
     let dadosUsuario=contatosZap.getDadosUsuario()
 
     if(dadosUsuario){
@@ -104,7 +104,7 @@ app.get('/v1/whatsapp/buscarmensagem', function(request, response){
     }
 })
 
-app.get('v1/whatsapp/help', function(request, response){
+app.get('/v1/whatsapp/help', function(request, response){
     let docAPI = {
         "api-description": "API para manipular dados do Whatsapp",
         "date": "2026-04-13",
