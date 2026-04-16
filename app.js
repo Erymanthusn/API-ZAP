@@ -1,15 +1,20 @@
-const express = require("express")
+//Import das dependências para criar a API
+const express = require('express')
 const cors = require('cors')
 
+//Criando um objeto do express para criar a API
 const app = express()
 
+//Configurações do CORS da API
 const corsOptions = {
-    origin: ['*'],
-    methods:'GET',
-    allowedHeaders: ['Content-type', 'Authorization']
+    origin: ['*'],  //Configuração de origem da requisição (IP ou Dominio)
+    methods: 'GET', //Configuração dos verbos que serão utilizados na API
+    allowedHeaders: ['Content-type', 'Authorization'] //Configurações de permissões
+                    //Tipo de dados //Autorização de acesso
 
 }
 
+//Aplica as configurações do CORNS no app (EXPRESS)
 app.use(cors(corsOptions))
 
 const contatosZap = require('./modulo/array_json.js')
@@ -132,6 +137,13 @@ app.get('v1/whatsapp/help', function(request, response){
             }
         ]
     }
+    response.status(200)
+    response.json(docAPI)
 })
 
+//Fazer o Start na API (aguardando as requisições)
+app.listen(8080, function(){
+    console.log('API aguardando novas requisições ...')
+    
+})
 
